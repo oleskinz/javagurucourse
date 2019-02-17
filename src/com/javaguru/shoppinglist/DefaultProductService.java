@@ -1,5 +1,6 @@
 package com.javaguru.shoppinglist;
 
+import javax.xml.bind.ValidationException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -16,10 +17,8 @@ public class DefaultProductService implements ProductService {
     }
 
     @Override
-    public Long create(Product product) {
-        if (product == null) {
-            throw new IllegalArgumentException("Cannot be null");
-        }
+    public Long create(Product product) throws ValidationException {
+        ProductValidationRules.validate(product);
         product.setId(PRODUCT_ID_SEQUENCE);
 
         database.put(PRODUCT_ID_SEQUENCE, product);

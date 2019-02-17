@@ -7,12 +7,16 @@ public class Product {
 
     private Long id;
     private String name;
+    private String category;
+    private String description;
+
     private BigDecimal price;
+    private Double discount;
 
-    public Long getId() {
-        return id;
-    }
 
+
+
+    public Long getId() { return id; }
     public void setId(Long id) {
         this.id = id;
     }
@@ -20,41 +24,50 @@ public class Product {
     public String getName() {
         return name;
     }
-
     public void setName(String name) {
         this.name = name;
     }
 
+    public String getCategory() { return category; }
+    public void setCategory(String category) { this.category = category; }
+
+    public String getDescription() { return description; }
+    public void setDescription(String description) { this.description = description; }
+
     public BigDecimal getPrice() {
         return price;
     }
-
     public void setPrice(BigDecimal price) {
         this.price = price;
     }
 
+    public Double getDiscount() { return discount; }
+    public void setDiscount(Double discount) { this.discount = discount; }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Product product = (Product) o;
-        return Objects.equals(id, product.id) &&
-                Objects.equals(name, product.name) &&
-                Objects.equals(price, product.price);
+
+
+    public boolean equals(Object object) {
+        if (this == object) return true;
+        if (object == null || getClass() != object.getClass()) return false;
+        if (!super.equals(object)) return false;
+        Product product = (Product) object;
+        return java.util.Objects.equals(id, product.id) &&
+                java.util.Objects.equals(name, product.name) &&
+                java.util.Objects.equals(category, product.category) &&
+                java.util.Objects.equals(description, product.description) &&
+                java.util.Objects.equals(price, product.price) &&
+                java.util.Objects.equals(discount, product.discount);
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, name, price);
-    }
-
-    @Override
-    public String toString() {
+    @java.lang.Override
+    public java.lang.String toString() {
         return "Product{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
+                ", category='" + category + '\'' +
+                ", description='" + description + '\'' +
                 ", price=" + price +
+                ", discount=" + discount +
                 '}';
     }
 }
