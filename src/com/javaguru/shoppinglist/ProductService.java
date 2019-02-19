@@ -1,6 +1,5 @@
 package com.javaguru.shoppinglist;
 
-import javax.xml.bind.ValidationException;
 
 public interface ProductService {
 
