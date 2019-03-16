@@ -6,7 +6,7 @@ import java.util.Map;
 public class DefaultProductService implements ProductService {
 
     private Map<Long, Product> database = new HashMap<>();
-    private Long PRODUCT_ID_SEQUENCE = 0L;
+    private Long productIdSequence = 0L;
 
     public Product findBy(Long id) {
         if (id == null) {
@@ -16,14 +16,12 @@ public class DefaultProductService implements ProductService {
     }
 
     @Override
-    public Long create(Product product) {
-        if (product == null) {
-            throw new IllegalArgumentException("Cannot be null");
-        }
-        product.setId(PRODUCT_ID_SEQUENCE);
+    public Long create(Product product) throws ValidationException {
+        ProductValidationRules.validate(product);
+        product.setId(productIdSequence);
 
-        database.put(PRODUCT_ID_SEQUENCE, product);
-        return PRODUCT_ID_SEQUENCE++;
+        database.put(productIdSequence, product);
+        return productIdSequence++;
     }
 
 }
