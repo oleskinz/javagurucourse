@@ -5,8 +5,8 @@ import java.util.Map;
 
 public class DefaultProductService implements ProductService {
 
-    private Map<Long, Product> database = new HashMap<>();
-    private Long productIdSequence = 0L;
+    //private Map<Long, Product> database = new HashMap<>();
+    //private Long productIdSequence = 0L;
 
     public Product findBy(Long id) {
         if (id == null) {

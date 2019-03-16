@@ -9,7 +9,6 @@ public class Product {
     private String name;
     private String category;
     private String description;
-
     private BigDecimal price;
     private Double discount;
 
@@ -46,17 +45,9 @@ public class Product {
 
 
 
-    public boolean equals(Object object) {
-        if (this == object) return true;
-        if (object == null || getClass() != object.getClass()) return false;
-        if (!super.equals(object)) return false;
-        Product product = (Product) object;
-        return java.util.Objects.equals(id, product.id) &&
-                java.util.Objects.equals(name, product.name) &&
-                java.util.Objects.equals(category, product.category) &&
-                java.util.Objects.equals(description, product.description) &&
-                java.util.Objects.equals(price, product.price) &&
-                java.util.Objects.equals(discount, product.discount);
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, category, description, price, discount);
     }
 
     @java.lang.Override
