@@ -1,4 +1,4 @@
-package com.javaguru.shoppinglist;
+package com.javaguru.shoppinglist.console.actions;
 
 public interface Action {
 

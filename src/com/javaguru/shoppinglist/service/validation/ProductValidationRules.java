@@ -1,5 +1,7 @@
-package com.javaguru.shoppinglist;
+package com.javaguru.shoppinglist.service.validation;
 
+
+import com.javaguru.shoppinglist.domain.Product;
 
 public class ProductValidationRules {
 

@@ -1,27 +1,26 @@
-package com.javaguru.shoppinglist;
+package com.javaguru.shoppinglist.repository;
+
+import com.javaguru.shoppinglist.domain.Product;
+import com.javaguru.shoppinglist.service.validation.ValidationException;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class DefaultProductService implements ProductService {
+public class ProductInMemoryRepository {
 
     private Map<Long, Product> database = new HashMap<>();
     private Long productIdSequence = 0L;
 
-    public Product findBy(Long id) {
+    public Product findById(Long id) {
         if (id == null) {
             throw new IllegalArgumentException("Id must be not null");
         }
         return database.get(id);
     }
 
-    @Override
     public Long create(Product product) throws ValidationException {
-        ProductValidationRules.validate(product);
         product.setId(productIdSequence);
-
         database.put(productIdSequence, product);
         return productIdSequence++;
     }
-
 }

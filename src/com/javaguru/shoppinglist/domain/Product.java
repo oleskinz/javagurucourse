@@ -1,7 +1,6 @@
-package com.javaguru.shoppinglist;
+package com.javaguru.shoppinglist.domain;
 
 import java.math.BigDecimal;
-import java.util.Objects;
 
 public class Product {
 
